@@ -92,12 +92,12 @@ main {
 #home, #work {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(4, minmax(64px, auto));
 }
 
 #home {
     grid-column: 1;
     grid-row: 1;
+    grid-template-rows: repeat(4, minmax(64px, auto));
 }
 
 .desc {
@@ -151,16 +151,88 @@ main {
 #work {
     grid-column: 1;
     grid-row: 2;
+    grid-template-rows: repeat(3, 64px) 468px;
 }
 
 #work img {
+    position: relative;
     box-sizing: border-box;
     grid-column: 2 / 8;
-    grid-row: 4;
-    object-position: top;
+    grid-row: 4 / 6;
     object-fit: cover;
+    object-position: top;
     width: 100%;
-    max-height: 468px;
+    height: 100%;
     overflow: hidden;
     box-shadow: 0 0px 16px rgba(0,0,0,0.08), 0 0px 16px rgba(0,0,0,0.08)
+}
+
+.workInfo {
+    position: relative;
+    box-sizing: border-box;
+    grid-column: 8 / 11;
+    grid-row: 4;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    padding-top: 128px;
+    padding-left: 48px;
+    z-index: 99;
+}
+
+/* .workInfo:before {
+    content: '';
+    position: absolute;
+    top: 64px;
+    width: 110%;
+    height: 4px;
+    background: black;
+} */
+
+.workNo {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 5rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.workNo:before {
+    content: '0';
+}
+
+.workTitle {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    margin-bottom: 1.4rem;
+}
+
+.workClient, .workRole {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1rem;
+    margin: .5rem 0;
+}
+
+.workClient:before {
+    content: 'Client : ';
+    margin-right: 1rem;
+}
+
+.workRole:before {
+    content: 'Role : ';
+    padding-left: 0.75rem;
+    margin-right: 1rem;
+}
+
+.workVisit {
+    font-family: 'Raleway', sans-serif;
+    color: black;
+    font-weight: 500;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin: 1rem 4.5rem;
+    padding: 6px 24px;
+    border: 1px solid black;
 }
